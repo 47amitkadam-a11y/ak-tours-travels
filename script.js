@@ -1,0 +1,5 @@
+const mrBtn=document.getElementById('mrBtn');const enBtn=document.getElementById('enBtn');
+function setLang(lang){document.documentElement.lang=lang;document.querySelectorAll('[data-mr][data-en]').forEach(el=>{el.textContent=el.dataset[lang]});mrBtn.classList.toggle('active',lang==='mr');enBtn.classList.toggle('active',lang==='en');}
+mrBtn.addEventListener('click',()=>setLang('mr'));enBtn.addEventListener('click',()=>setLang('en'));
+document.getElementById('year').textContent=new Date().getFullYear();
+document.getElementById('bookingForm').addEventListener('submit',e=>{e.preventDefault();const v=id=>document.getElementById(id).value.trim();const message=`Namaskar AK Tours & Travels!%0AName: ${encodeURIComponent(v('name'))}%0AVehicle: ${encodeURIComponent(v('vehicle'))}%0ATravel date: ${encodeURIComponent(v('date'))}%0APickup: ${encodeURIComponent(v('pickup'))}%0ADestination: ${encodeURIComponent(v('destination'))}%0ADetails: ${encodeURIComponent(v('details'))}`;window.open(`https://wa.me/917066680100?text=${message}`,'_blank','noopener');});
